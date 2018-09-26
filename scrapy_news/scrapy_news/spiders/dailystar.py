@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class DailyStarSpider(scrapy.Spider):
     name = 'dailystar'
     allowed_domains = ['dailystar.co.uk']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'Daily Star'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
 

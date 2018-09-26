@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class ElDesmarqueSpider(scrapy.Spider):
     name = 'eldesmarque'
     allowed_domains = ['eldesmarque.com']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'El Desmarque'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
         url = response.url

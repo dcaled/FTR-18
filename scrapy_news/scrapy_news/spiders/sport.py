@@ -9,15 +9,16 @@ import scrapy_news.url_selector as url_selector
 class SportSpider(scrapy.Spider):
     name = 'sport'
     allowed_domains = ['sport.es', 'sport-english.com']
-    start_urls = url_selector.get_urls(allowed_domains)
-
+    source = 'Sport'
+    start_urls = url_selector.get_urls(source)
+    
     def parse(self, response):
 
         url = response.url
         datetime = response.css(".date ::attr(datetime)").extract_first()
         headline = response.css("h1 ::text").extract_first()
         sh_lst = response.css("h2 ::text").extract()
-        author =  response.css(".author-link ::text").extract_first()
+        author = response.css(".author-link ::text").extract_first()
         body_text = " ".join(response.css('.editor p ::text').extract())
 
 

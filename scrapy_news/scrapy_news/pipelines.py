@@ -15,7 +15,7 @@ class SoccerNewsPipeline(object):
 
     def close_spider(self, spider):
         self.file = open('{}_{}.json'.format(time.strftime("%Y_%m_%d"), self.source), 'w', encoding='utf8')
-        #self.file = open('{}_{}_41-50.json'.format(time.strftime("%Y_%m_%d"), self.source), 'w', encoding='utf8')
+        #self.file = open('{}_{}_11.json'.format(time.strftime("%Y_%m_%d"), self.source), 'w', encoding='utf8')
         #self.file = open('{}_thesun.txt'.format(time.strftime("%Y_%m_%d")), 'w', encoding='utf8')
 
         #json.dump(dict(item), ensure_ascii=False)

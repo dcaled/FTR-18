@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class BleacherReportSpider(scrapy.Spider):
     name = 'bleacherreport'
     allowed_domains = ['bleacherreport.com']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'Bleacher Report'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
         url = response.url

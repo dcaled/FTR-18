@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class BesoccerSpider(scrapy.Spider):
     name = 'besoccer'
     allowed_domains = ['besoccer.com']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'Be Soccer'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
         url = response.url

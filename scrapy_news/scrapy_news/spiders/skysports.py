@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class SkysportsSpider(scrapy.Spider):
     name = 'skysports'
     allowed_domains = ['skysports.com']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'Sky Sports'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
 
@@ -18,7 +19,7 @@ class SkysportsSpider(scrapy.Spider):
         mkt_lst = []
         twt_lst = []
 
-        if 'http://www.skysports.com/football/' in url:
+        if 'https://www.skysports.com/football/' in url:
             datetime = response.css(".article__header-date-time ::text").extract_first()
             headline = response.css(".article__long-title ::text").extract_first()
             subhead = response.css(".article__sub-title ::text").extract_first()

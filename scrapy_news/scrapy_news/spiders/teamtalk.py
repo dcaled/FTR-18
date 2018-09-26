@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class TeamtalkSpider(scrapy.Spider):
     name = 'teamtalk'
     allowed_domains = ['teamtalk.com']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'Teamtalk'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
         url = response.url
@@ -37,3 +38,5 @@ class TeamtalkSpider(scrapy.Spider):
 #Fix:
 #More from Planet Sport
 #https://www.teamtalk.com/news/bruce-admits-it-will-be-difficult-to-keep-grealish-away-from-tottenham
+#Paper talk
+#https://www.teamtalk.com/news/paper-talk-liverpool-make-sensational-e180m-bid-for-man-utd-target-arsenal-chase-celta-vigo-man

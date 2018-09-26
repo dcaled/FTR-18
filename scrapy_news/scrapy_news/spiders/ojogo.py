@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class OJogoSpider(scrapy.Spider):
     name = 'ojogo'
     allowed_domains = ['ojogo.pt']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'O Jogo'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
 

@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class TelegraphSpider(scrapy.Spider):
     name = 'telegraph'
     allowed_domains = ['telegraph.co.uk']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'The Telegraph'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
         url = response.url

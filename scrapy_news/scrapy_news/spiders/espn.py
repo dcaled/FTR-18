@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class ESPNSpider(scrapy.Spider):
     name = 'espn'
     allowed_domains = ['espn.com','espn.com.br','espn.co.uk']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'ESPN'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
         url = response.url

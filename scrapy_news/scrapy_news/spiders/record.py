@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class RecordSpider(scrapy.Spider):
     name = 'record'
     allowed_domains = ['record.pt']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'Record'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
 

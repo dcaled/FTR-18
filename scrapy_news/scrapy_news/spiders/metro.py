@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class MetroSpider(scrapy.Spider):
     name = 'metro'
     allowed_domains = ['metro.co.uk']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'Metro'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
 

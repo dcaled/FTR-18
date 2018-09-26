@@ -4,12 +4,13 @@ from scrapy_news.items import SoccerNewsItem
 import scrapy_news.url_selector as url_selector
 
 #to run
-#scrapy crawl depor.com
+#scrapy crawl depor
 
 class DeporSpider(scrapy.Spider):
-    name = 'depor.com'
+    name = 'depor'
     allowed_domains = ['depor.com']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'Depor'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
         url = response.url

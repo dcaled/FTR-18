@@ -4,21 +4,21 @@ from scrapy_news.items import SoccerNewsItem
 import scrapy_news.url_selector as url_selector
 
 #to run
-#scrapy crawl men
+#scrapy crawl maisfutebol
 
-class TecnoblogSpider(scrapy.Spider):
-    name = 'men'
-    allowed_domains = ['manchestereveningnews.co.uk/']
-    source = 'Manchester Evening News'
+class MaisfutebolSpider(scrapy.Spider):
+    name = 'maisfutebol'
+    allowed_domains = ['maisfutebol.iol.pt']
+    source = 'Maisfutebol'
     start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
         url = response.url
-        datetime = response.css("time ::attr(datetime)").extract_first()
+        datetime = response.css(".date ::text").extract_first()
         headline = response.css("h1 ::text").extract_first()
-        subhead = response.css("p ::text").extract_first()
-        author = response.css("a.publication-theme ::text").extract_first()
-        body_text = " ".join(response.css(".article-body p ::text").extract())
+        subhead = response.css("h2 ::text").extract_first()
+        author = response.css(".autores a ::text").extract_first()
+        body_text = " ".join(response.css(".articleBody p ::text").extract())
 
         notice = SoccerNewsItem(
             headline=headline, subhead=subhead, 
@@ -28,7 +28,5 @@ class TecnoblogSpider(scrapy.Spider):
         
         yield notice
 #Twt
-#
+#http://www.maisfutebol.iol.pt/espanha/celta-vigo/oficial-sevilha-contrata-sergi-gomez
 
-#Instagram
-#

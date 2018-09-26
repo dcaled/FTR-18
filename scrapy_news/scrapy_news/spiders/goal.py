@@ -9,7 +9,8 @@ import scrapy_news.url_selector as url_selector
 class GoalSpider(scrapy.Spider):
     name = 'goal'
     allowed_domains = ['goal.com']
-    start_urls = url_selector.get_urls(allowed_domains)
+    source = 'Goal'
+    start_urls = url_selector.get_urls(source)
 
     def parse(self, response):
 
